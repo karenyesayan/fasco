@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-3xl: 1920px;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+@layer components {
+  .box {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: content-box;
+    overflow: hidden;
+  }
+}
+
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--background);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--foreground);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+.embla__slide__number {
+  background: #ffffff;
+  box-shadow: 0px 20px 60px rgba(46, 33, 61, 0.08);
+  border-radius: 10px;
+  font-size: 4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25rem;
+}
+
+.embla__slide {
+  transition: opacity 0.2s ease-in-out;
+  transition-property: opacity, transform;
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 35%;
+  min-width: 0;
+  /* padding-left: 0rem; */
+}
+
+.embla__slide:not(.is-snapped) {
+  /* opacity: 0.16; */
+  transform: scale(0.7);
+  transform-origin: top;
+}
+
+@keyframes slide-in {
+  from {
+    translate: -100%;
+  }
+
+  to {
+    translate: 0;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    translate: 0;
+  }
+
+  to {
+    translate: -100%;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0%;
+    transform: translateY(0.25rem);
+  }
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes backdrop-fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 60%;
+  }
+}
+
+@keyframes backdrop-fade-out {
+  from {
+    opacity: 60%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+@keyframes scale-up {
+  from {
+    opacity: 0%;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-down {
+  from {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0%;
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes scale-down-48 {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.95);
+    transform: translateY(0);
+  }
+}
